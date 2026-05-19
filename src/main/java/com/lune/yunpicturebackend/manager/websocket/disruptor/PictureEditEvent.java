@@ -1,7 +1,7 @@
 package com.lune.yunpicturebackend.manager.websocket.disruptor;
 
 import com.lune.yunpicturebackend.manager.websocket.model.PictureEditRequestMessage;
-import com.lune.yunpicturebackend.model.entity.User;
+import com.lune.yunpicture.domain.user.entity.User;
 import lombok.Data;
 import org.springframework.web.socket.WebSocketSession;
 

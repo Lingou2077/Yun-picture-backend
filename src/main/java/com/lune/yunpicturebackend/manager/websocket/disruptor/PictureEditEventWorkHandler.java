@@ -6,15 +6,14 @@ import com.lune.yunpicturebackend.manager.websocket.PictureEditHandler;
 import com.lune.yunpicturebackend.manager.websocket.model.PictureEditMessageTypeEnum;
 import com.lune.yunpicturebackend.manager.websocket.model.PictureEditRequestMessage;
 import com.lune.yunpicturebackend.manager.websocket.model.PictureEditResponseMessage;
-import com.lune.yunpicturebackend.model.entity.User;
-import com.lune.yunpicturebackend.service.UserService;
+import com.lune.yunpicture.domain.user.entity.User;
+import com.lune.yunpicture.application.service.UserApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 /**
  * 图片编辑处理事件 （消费者）
@@ -23,7 +22,7 @@ import java.util.Map;
 @Slf4j
 public class PictureEditEventWorkHandler implements WorkHandler<PictureEditEvent> {
     @Resource
-    private UserService userService;
+    private UserApplicationService userApplicationService;
 
     @Resource
     private PictureEditHandler pictureEditHandler;
@@ -54,7 +53,7 @@ public class PictureEditEventWorkHandler implements WorkHandler<PictureEditEvent
                 PictureEditResponseMessage pictureEditResponseMessage = new PictureEditResponseMessage();
                 pictureEditResponseMessage.setType(PictureEditMessageTypeEnum.ERROR.getValue());
                 pictureEditResponseMessage.setMessage("未知消息类型");
-                pictureEditResponseMessage.setUser(userService.getUserVo(user));
+                pictureEditResponseMessage.setUser(userApplicationService.getUserVo(user));
                 session.sendMessage(new TextMessage(JSONUtil.toJsonStr(pictureEditResponseMessage)));
         }
     }

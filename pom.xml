@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lune</groupId>
-    <artifactId>yun-picture-backend</artifactId>
+    <artifactId>yun-picture-backend-ddd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>yun-picture-backend</name>
-    <description>yun-picture-backend</description>
+    <name>yun-picture-backend-ddd</name>
+    <description>yun-picture-backend-ddd</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -174,7 +174,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.lune.yunpicturebackend.YunPictureBackendApplication</mainClass>
+                    <mainClass>com.lune.yunpicture.YunPictureBackendApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>

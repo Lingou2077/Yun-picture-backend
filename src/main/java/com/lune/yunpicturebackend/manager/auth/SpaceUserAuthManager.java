@@ -5,13 +5,13 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.lune.yunpicturebackend.manager.auth.model.SpaceUserAuthConfig;
 import com.lune.yunpicturebackend.manager.auth.model.SpaceUserRole;
-import com.lune.yunpicturebackend.model.entity.Space;
-import com.lune.yunpicturebackend.model.entity.SpaceUser;
-import com.lune.yunpicturebackend.model.entity.User;
-import com.lune.yunpicturebackend.model.enums.SpaceRoleEnum;
-import com.lune.yunpicturebackend.model.enums.SpaceTypeEnum;
-import com.lune.yunpicturebackend.service.SpaceUserService;
-import com.lune.yunpicturebackend.service.UserService;
+import com.lune.yunpicture.domain.space.entity.Space;
+import com.lune.yunpicture.domain.space.entity.SpaceUser;
+import com.lune.yunpicture.domain.user.entity.User;
+import com.lune.yunpicture.domain.space.valueobject.SpaceRoleEnum;
+import com.lune.yunpicture.domain.space.valueobject.SpaceTypeEnum;
+import com.lune.yunpicture.application.service.SpaceUserApplicationService;
+import com.lune.yunpicture.application.service.UserApplicationService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -24,10 +24,10 @@ import java.util.List;
 @Component
 public class SpaceUserAuthManager {
     @Resource
-    private UserService userService;
+    private UserApplicationService userApplicationService;
 
     @Resource
-    private SpaceUserService spaceUserService;
+    private SpaceUserApplicationService spaceUserApplicationService;
 
     public static final SpaceUserAuthConfig SPACE_USER_AUTH_CONFIG;
 
@@ -70,7 +70,7 @@ public class SpaceUserAuthManager {
         List<String> ADMIN_PERMISSIONS = getPermissionsByRole(SpaceRoleEnum.ADMIN.getValue());
         // 公共图库
         if (space == null) {
-            if (userService.isAdmin(loginUser)) {
+            if (loginUser.isAdmin()) {
                 return ADMIN_PERMISSIONS;
             }
             return new ArrayList<>();
@@ -83,14 +83,14 @@ public class SpaceUserAuthManager {
         switch (spaceTypeEnum) {
             case PRIVATE:
                 // 私有空间，仅本人或管理员有所有权限
-                if (space.getUserId().equals(loginUser.getId()) || userService.isAdmin(loginUser)) {
+                if (space.getUserId().equals(loginUser.getId()) || loginUser.isAdmin()) {
                     return ADMIN_PERMISSIONS;
                 } else {
                     return new ArrayList<>();
                 }
             case TEAM:
                 // 团队空间，查询 SpaceUser 并获取角色和权限
-                SpaceUser spaceUser = spaceUserService.lambdaQuery()
+                SpaceUser spaceUser = spaceUserApplicationService.lambdaQuery()
                         .eq(SpaceUser::getSpaceId, space.getId())
                         .eq(SpaceUser::getUserId, loginUser.getId())
                         .one();

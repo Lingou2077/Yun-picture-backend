@@ -1,12 +1,12 @@
 package com.lune.yunpicturebackend.controller;
 
-import com.lune.yunpicturebackend.annotation.AuthCheck;
-import com.lune.yunpicturebackend.common.BaseResponse;
-import com.lune.yunpicturebackend.common.ResultUtils;
-import com.lune.yunpicturebackend.constant.UserConstant;
-import com.lune.yunpicturebackend.exception.BusinessException;
-import com.lune.yunpicturebackend.exception.ErrorCode;
-import com.lune.yunpicturebackend.manager.CosManager;
+import com.lune.yunpicture.infrastructure.annotation.AuthCheck;
+import com.lune.yunpicture.infrastructure.common.BaseResponse;
+import com.lune.yunpicture.infrastructure.common.ResultUtils;
+import com.lune.yunpicture.domain.user.constant.UserConstant;
+import com.lune.yunpicture.infrastructure.exception.BusinessException;
+import com.lune.yunpicture.infrastructure.exception.ErrorCode;
+import com.lune.yunpicture.infrastructure.api.CosManager;
 import com.qcloud.cos.model.COSObject;
 import com.qcloud.cos.model.COSObjectInputStream;
 import com.qcloud.cos.utils.IOUtils;

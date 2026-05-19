@@ -1,7 +1,7 @@
 package com.lune.yunpicturebackend.controller;
 
-import com.lune.yunpicturebackend.common.BaseResponse;
-import com.lune.yunpicturebackend.common.ResultUtils;
+import com.lune.yunpicture.infrastructure.common.BaseResponse;
+import com.lune.yunpicture.infrastructure.common.ResultUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

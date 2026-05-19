@@ -1,8 +1,8 @@
 package com.lune.yunpicturebackend.manager.auth;
 
-import com.lune.yunpicturebackend.model.entity.Picture;
-import com.lune.yunpicturebackend.model.entity.Space;
-import com.lune.yunpicturebackend.model.entity.SpaceUser;
+import com.lune.yunpicture.domain.picture.entity.Picture;
+import com.lune.yunpicture.domain.space.entity.Space;
+import com.lune.yunpicture.domain.space.entity.SpaceUser;
 import lombok.Data;
 
 /**

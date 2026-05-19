@@ -1,6 +1,6 @@
 package com.lune.yunpicturebackend.manager.websocket.model;
 
-import com.lune.yunpicturebackend.model.vo.UserVO;
+import com.lune.yunpicture.interfaces.vo.user.UserVO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
