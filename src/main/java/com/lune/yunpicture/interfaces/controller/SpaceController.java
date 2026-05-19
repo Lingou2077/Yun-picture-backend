@@ -11,7 +11,7 @@ import com.lune.yunpicture.infrastructure.exception.ErrorCode;
 import com.lune.yunpicture.infrastructure.exception.ThrowUtils;
 import com.lune.yunpicture.interfaces.assemble.SpaceAssembler;
 import com.lune.yunpicture.interfaces.dto.space.*;
-import com.lune.yunpicturebackend.manager.auth.SpaceUserAuthManager;
+import com.lune.yunpicture.shared.auth.SpaceUserAuthManager;
 import com.lune.yunpicture.domain.space.entity.Space;
 import com.lune.yunpicture.domain.user.entity.User;
 import com.lune.yunpicture.domain.space.valueobject.SpaceLevelEnum;
@@ -19,7 +19,6 @@ import com.lune.yunpicture.interfaces.vo.space.SpaceVO;
 import com.lune.yunpicture.application.service.SpaceApplicationService;
 import com.lune.yunpicture.application.service.UserApplicationService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

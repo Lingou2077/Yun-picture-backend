@@ -18,7 +18,7 @@ import com.lune.yunpicture.interfaces.dto.user.UserQueryRequest;
 import com.lune.yunpicture.interfaces.dto.user.UserRegisterRequest;
 import com.lune.yunpicture.interfaces.vo.user.LoginUserVO;
 import com.lune.yunpicture.interfaces.vo.user.UserVO;
-import com.lune.yunpicturebackend.manager.auth.StpKit;
+import com.lune.yunpicture.shared.auth.StpKit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
